@@ -1,0 +1,117 @@
+*, *:before, *:after { box-sizing: border-box; }
+
+      :root {
+        --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      }
+
+      .app {
+        font-family: var(--font-stack);        
+        margin: 0;
+        background: black;
+        color: white;
+      }
+
+      .nav {
+        display: flex;
+        width: 100%;
+        height: 70px;
+      }
+
+      .nav input[type="search"] {
+        flex: 1 1 100%;
+        padding: 0 2rem;
+        border: none;
+        background-color: black;
+        color: white;
+        font-family: var(--font-stack);
+        font-size: 2rem;
+        line-height: 70px;
+        transition: all 250ms;
+      }
+
+      .nav input[type="search"]:focus {
+        outline: none;
+        background-color: white;
+        color: black;
+      }
+
+      .nav .button {
+        flex: 0 0 70px;
+        padding: 0;
+        border: none;
+        background-color: black;
+        color: white;
+      }
+
+      .cards {
+        display: flex; 
+        flex-flow: row wrap;
+        width: 100%;
+        border: 1.5rem solid black;
+      }
+
+      .cards .card {
+        position: relative;
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        flex: 0 0 50%;
+        border: 0.5rem solid black;
+      }
+
+      @media screen and (min-width: 700px) {
+        .cards .card {
+          flex: 0 0 300px;
+        }
+      }
+
+      .cards .card:before {
+        content: '';
+        padding-top: 100%;
+      }
+
+      .cards .card .text  {
+        position: absolute; 
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        padding: 0.5rem;
+        font-size: 0.725rem;
+        background: black; 
+      }
+
+      @media screen and (min-width: 700px) {
+        .cards .card .text {
+          padding: 1rem;
+          font-size: 0.85rem;
+        }
+      }
+
+      .cards .card:focus,
+      .cards .card:hover {
+        outline: none;
+        border-color: dimgrey;
+      }
+
+      .cards .card .label,
+      .cards .card .value {
+        display: block;
+      }
+
+      .cards .card .label {
+        font-weight: bold;
+      }
+
+      .cards .card .value {
+        opacity: 0.75;
+      }
+
+      .cards .value.hex:before {
+        content: 'HEX: '
+      }
+
+      .cards .value.rgb:before {
+        content: 'RGB: '
+      }
